@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>weather</title>
     <link rel="stylesheet" href="/styles/styles.css">
+
+    <link rel="icon" href="/img/weather.png">
 </head>
 
 <body>
-    <h1>
+    <div class="main-content">
+        {{>header}}
+        <p>use this site to get your weather</p>
+    </div>
 
-        {{title}}
-    </h1>
+
+    <footer>
+        {{>footer}}
+    </footer>
     <script src="/js/index.js"></script>
 </body>
 
