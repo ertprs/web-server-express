@@ -50,7 +50,7 @@ app.get("/weather", (req, res) => {
       });
     }
     res.send({
-      error: "Cannot get weather of the specified address",
+      error: "unable to find location. Try another search",
     });
   });
 });
