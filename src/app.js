@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+const getWeather = require("./getWeather");
 
 const app = express();
 
@@ -35,9 +36,18 @@ app.get("/help", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
-  res.send({
-    location: "Ongata Rongai",
-    forecast: "20 degrees celcius",
+  if (!req.query.address) {
+    return res.send({
+      error: "You must provide an address",
+    });
+  }
+  getWeather(req.query.address, (error, data) => {
+    if (data) {
+      return res.send(data);
+    }
+    res.send({
+      error: "Cannot get weather of the specified address",
+    });
   });
 });
 
