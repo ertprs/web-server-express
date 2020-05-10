@@ -5,6 +5,8 @@ const getWeather = require("./getWeather");
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 //PATHS FOR EXPRESS CONFIG and STATIC DIRECTORY TO SERVE
 app.use(express.static(path.join(__dirname, "../public")));
 
@@ -69,6 +71,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });

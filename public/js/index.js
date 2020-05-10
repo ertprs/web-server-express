@@ -4,9 +4,7 @@ const messageTwo = document.querySelector("#message-2");
 const fetchWeather = async (location) => {
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
-  const response = await fetch(
-    `http://localhost:3000/weather?address=${location}`
-  );
+  const response = await fetch(`/weather?address=${location}`);
   const res = await response.json();
 
   if (res.weather) {
