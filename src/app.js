@@ -43,7 +43,11 @@ app.get("/weather", (req, res) => {
   }
   getWeather(req.query.address, (error, data) => {
     if (data) {
-      return res.send(data);
+      return res.send({
+        description: data.weather[0].description,
+        weather: `It is currently ${data.main.temp} degrees in ${data.name}`,
+        location: data.name,
+      });
     }
     res.send({
       error: "Cannot get weather of the specified address",
